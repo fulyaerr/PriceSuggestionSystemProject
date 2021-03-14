@@ -16,5 +16,15 @@ namespace PriceSuggestionSystemSln
         {
             InitializeComponent();
         }
+
+        private void btnTemizle_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnKaydet_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
