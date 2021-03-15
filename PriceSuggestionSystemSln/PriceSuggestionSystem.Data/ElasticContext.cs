@@ -21,12 +21,10 @@ namespace PriceSuggestionSystem.Data
         public IndexResponseDTO CreateIndex<T>(string indexName) where T : class
         {
             var createIndexDescriptor = new CreateIndexDescriptor(indexName)
-            .Mappings(ms => ms
-                            .Map<T>(m => m.AutoMap())
-                     )
+            .Map(m => m.AutoMap())
             .Aliases(a => a.Alias(ConfigurationManager.AppSettings["aliasName"]));
 
-            var response = _elasticClient.CreateIndex(createIndexDescriptor);
+            var response = _elasticClient.Indices.Create(createIndexDescriptor);
 
             return new IndexResponseDTO()
             {

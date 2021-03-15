@@ -1,5 +1,6 @@
 ﻿using Nest;
 using PriceSuggestionSystem.Core.Common;
+using PriceSuggestionSystem.Data;
 using PriceSuggestionSystem.Data.Entities;
 using System;
 using System.Collections.Generic;
@@ -44,7 +45,7 @@ namespace PriceSuggestionSystemSln
                     mark = txtUrunMarka.Text,
                     marketName = txtMarketAdi.Text,
                     name = txtUrunAdi.Text,
-                    price = txtUrunFiyat.Text
+                    price = Convert.ToDecimal(txtUrunFiyat.Text)
                 };
 
                 var result = elasticClient.Index<Product>(product, i => i.Index(indexNameProduct).Id(new Id(product.id)).Refresh(Elasticsearch.Net.Refresh.WaitFor));
@@ -79,5 +80,26 @@ namespace PriceSuggestionSystemSln
 
             grdFullSearchUrun.DataSource = result.Documents.ToList();
         }
+
+        private void btnIndexCreate_Click(object sender, EventArgs e)
+        {
+            var elasticClient = new ElasticClient(ElasticHelper.Instance.GetConnectionSettings());
+            var elasticContext = new ElasticContext(elasticClient);
+            CreateIndex(elasticContext, indexNameProduct);
+        }
+
+        private static void CreateIndex(ElasticContext elasticContext, string indexName)
+        {
+            var response = elasticContext.CreateIndex<Product>(indexName);
+            if (response.IsValid)
+            {
+                MessageBox.Show("Index Başarılı Şekilde Oluşturuldu.");
+            }
+            else
+            {
+                MessageBox.Show("Hata : " + response.StatusMessage);
+            }
+        }
+        
     }
 }

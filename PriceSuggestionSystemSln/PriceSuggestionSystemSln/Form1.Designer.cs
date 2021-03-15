@@ -46,10 +46,9 @@
             this.txtFullSearchUrun = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
             this.tabPageAyarlar = new System.Windows.Forms.TabPage();
-            this.button2 = new System.Windows.Forms.Button();
-            this.btnIndexClear = new System.Windows.Forms.Button();
-            this.btnIndexList = new System.Windows.Forms.Button();
-            this.btnIndexCreate = new System.Windows.Forms.Button();
+            this.btnSettingClear = new System.Windows.Forms.Button();
+            this.btnDataImport = new System.Windows.Forms.Button();
+            this.btnDataExport = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPageUrunEkle.SuspendLayout();
             this.tabPageUrunArama.SuspendLayout();
@@ -113,6 +112,7 @@
             this.btnTemizle.TabIndex = 23;
             this.btnTemizle.Text = "Temizle";
             this.btnTemizle.UseVisualStyleBackColor = true;
+            this.btnTemizle.Click += new System.EventHandler(this.btnTemizle_Click);
             // 
             // btnKaydet
             // 
@@ -122,6 +122,7 @@
             this.btnKaydet.TabIndex = 21;
             this.btnKaydet.Text = "Kaydet";
             this.btnKaydet.UseVisualStyleBackColor = true;
+            this.btnKaydet.Click += new System.EventHandler(this.btnKaydet_Click);
             // 
             // txtUrunFiyat
             // 
@@ -199,7 +200,7 @@
             // 
             this.btnFiltre.Location = new System.Drawing.Point(407, 58);
             this.btnFiltre.Name = "btnFiltre";
-            this.btnFiltre.Size = new System.Drawing.Size(75, 45);
+            this.btnFiltre.Size = new System.Drawing.Size(75, 27);
             this.btnFiltre.TabIndex = 12;
             this.btnFiltre.Text = "Filtre";
             this.btnFiltre.UseVisualStyleBackColor = true;
@@ -223,10 +224,9 @@
             // 
             // tabPageAyarlar
             // 
-            this.tabPageAyarlar.Controls.Add(this.button2);
-            this.tabPageAyarlar.Controls.Add(this.btnIndexClear);
-            this.tabPageAyarlar.Controls.Add(this.btnIndexList);
-            this.tabPageAyarlar.Controls.Add(this.btnIndexCreate);
+            this.tabPageAyarlar.Controls.Add(this.btnSettingClear);
+            this.tabPageAyarlar.Controls.Add(this.btnDataImport);
+            this.tabPageAyarlar.Controls.Add(this.btnDataExport);
             this.tabPageAyarlar.Location = new System.Drawing.Point(4, 22);
             this.tabPageAyarlar.Name = "tabPageAyarlar";
             this.tabPageAyarlar.Padding = new System.Windows.Forms.Padding(3);
@@ -235,41 +235,32 @@
             this.tabPageAyarlar.Text = "Ayarlar";
             this.tabPageAyarlar.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnSettingClear
             // 
-            this.button2.Location = new System.Drawing.Point(462, 22);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(118, 43);
-            this.button2.TabIndex = 24;
-            this.button2.Text = "Ayarları Sıfırla";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnSettingClear.Location = new System.Drawing.Point(432, 32);
+            this.btnSettingClear.Name = "btnSettingClear";
+            this.btnSettingClear.Size = new System.Drawing.Size(118, 43);
+            this.btnSettingClear.TabIndex = 24;
+            this.btnSettingClear.Text = "Ayarları Sıfırla";
+            this.btnSettingClear.UseVisualStyleBackColor = true;
             // 
-            // btnIndexClear
+            // btnDataImport
             // 
-            this.btnIndexClear.Location = new System.Drawing.Point(130, 22);
-            this.btnIndexClear.Name = "btnIndexClear";
-            this.btnIndexClear.Size = new System.Drawing.Size(98, 43);
-            this.btnIndexClear.TabIndex = 23;
-            this.btnIndexClear.Text = "İndeksleri Oluştur";
-            this.btnIndexClear.UseVisualStyleBackColor = true;
+            this.btnDataImport.Location = new System.Drawing.Point(186, 32);
+            this.btnDataImport.Name = "btnDataImport";
+            this.btnDataImport.Size = new System.Drawing.Size(116, 43);
+            this.btnDataImport.TabIndex = 22;
+            this.btnDataImport.Text = "Dataları İçeri Aktar";
+            this.btnDataImport.UseVisualStyleBackColor = true;
             // 
-            // btnIndexList
+            // btnDataExport
             // 
-            this.btnIndexList.Location = new System.Drawing.Point(234, 22);
-            this.btnIndexList.Name = "btnIndexList";
-            this.btnIndexList.Size = new System.Drawing.Size(98, 43);
-            this.btnIndexList.TabIndex = 22;
-            this.btnIndexList.Text = "Dataları İçeri Aktar";
-            this.btnIndexList.UseVisualStyleBackColor = true;
-            // 
-            // btnIndexCreate
-            // 
-            this.btnIndexCreate.Location = new System.Drawing.Point(338, 22);
-            this.btnIndexCreate.Name = "btnIndexCreate";
-            this.btnIndexCreate.Size = new System.Drawing.Size(118, 43);
-            this.btnIndexCreate.TabIndex = 21;
-            this.btnIndexCreate.Text = "Dataları Dışarı Aktar";
-            this.btnIndexCreate.UseVisualStyleBackColor = true;
+            this.btnDataExport.Location = new System.Drawing.Point(308, 32);
+            this.btnDataExport.Name = "btnDataExport";
+            this.btnDataExport.Size = new System.Drawing.Size(118, 43);
+            this.btnDataExport.TabIndex = 21;
+            this.btnDataExport.Text = "Dataları Dışarı Aktar";
+            this.btnDataExport.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -312,10 +303,9 @@
         private System.Windows.Forms.Button btnFiltre;
         private System.Windows.Forms.TextBox txtFullSearchUrun;
         private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button btnIndexClear;
-        private System.Windows.Forms.Button btnIndexList;
-        private System.Windows.Forms.Button btnIndexCreate;
+        private System.Windows.Forms.Button btnSettingClear;
+        private System.Windows.Forms.Button btnDataImport;
+        private System.Windows.Forms.Button btnDataExport;
     }
 }
 

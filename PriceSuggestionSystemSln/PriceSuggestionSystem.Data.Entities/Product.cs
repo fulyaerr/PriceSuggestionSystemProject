@@ -11,7 +11,7 @@ namespace PriceSuggestionSystem.Data.Entities
         public string id { get; set; }
         public string name { get; set; }
         public string mark { get; set; }
-        public string price { get; set; }
+        public decimal price { get; set; }
         public string marketName { get; set; }
 
     }
